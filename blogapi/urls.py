@@ -4,6 +4,6 @@ from .views import ListView, DetailView
 app_name = 'api'
 
 urlpatterns = [
-    path('detail/', DetailView.as_view(), name='detail'),
-    path('list/', ListView.as_view(), name='list'),
+    path('<int:pk>/', DetailView.as_view(), name='detail'),
+    path('', ListView.as_view(), name='list'),
 ]

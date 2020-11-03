@@ -8,7 +8,7 @@ from blogapi.serializer import PostSerializer
 class ListView(generics.ListCreateAPIView):
     queryset = Post.postobjects.all()
     serializer_class = PostSerializer
-    pass
 
 class DetailView(generics.RetrieveDestroyAPIView):
-    pass
+    queryset = Post.postobjects.all()
+    serializer_class = PostSerializer

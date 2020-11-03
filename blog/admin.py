@@ -6,6 +6,7 @@ from .models import Post, Category
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title','status',)
     readonly_fields = ('created_at','updated_at',)
+    prepopulated_fields = {'slug': ('title',)}
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
