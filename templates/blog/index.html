@@ -8,6 +8,7 @@
                 <h4>[[ user.id ]]</h4>
                 <h3>[[ user.name ]]</h3>
             </li>
+            <button v-on:click="sendData()" type="button">Enviar</button>
         </ul>
     </div>
 {% endblock %}
@@ -32,6 +33,23 @@
                 .then( resp => resp.json() )
                 .then( data => {
                     this.usuarios = data.usuarios;
+                    console.log(data)
+                });
+            },
+            sendData(){
+                fetch('/blog/prueba/',{
+                    method: 'post',
+                    headers: {
+                        "X-CSRFToken": '{{ csrf_token }}',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id:3,
+                        name: 'maria',
+                    })
+                })
+                .then( resp => resp.json() )
+                .then( data => {
                     console.log(data)
                 });
             }
