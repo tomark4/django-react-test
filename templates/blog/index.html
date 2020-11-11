@@ -1,1 +1,41 @@
-<h1>Soy el blog</h1>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div id="app">
+        <h4>[[ message ]]</h4>
+        <ul>
+            <li v-for="user in usuarios">
+                <h4>[[ user.id ]]</h4>
+                <h3>[[ user.name ]]</h3>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+    var app = new Vue({
+        el: "#app",
+        delimiters: ["[[","]]"],
+        data: function() {
+            return {
+                message: 'hola desde vue',
+                usuarios: []
+            }
+        },
+        mounted: function() {
+            this.getData();
+        },
+        methods: {
+            getData(){
+                fetch('/blog/prueba')
+                .then( resp => resp.json() )
+                .then( data => {
+                    this.usuarios = data.usuarios;
+                    console.log(data)
+                });
+            }
+        }
+    })
+</script>
+{% endblock %}

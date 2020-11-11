@@ -10,4 +10,8 @@ class PruebaView(TemplateView):
     #template_name = 'blog/index.html'
 
     def get(self, request, *args, **kwargs):
-        return JsonResponse({'id':'1', 'name':'jose'})
+        data = [
+            {'id':'1', 'name':'jose'},
+            {'id':'2', 'name':'peter'}
+        ]
+        return JsonResponse({'usuarios': data})
