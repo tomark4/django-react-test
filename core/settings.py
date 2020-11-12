@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'blog',
     'blogapi',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'prueba'
 ]
 
 MIDDLEWARE = [
