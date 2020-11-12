@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+# comment in model
 # Create your models here.
 class Categoria(models.Model):
     name = models.CharField(max_length=100)
