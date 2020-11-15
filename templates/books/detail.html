@@ -1,0 +1,25 @@
+{% extends "books/layout.html" %}
+
+
+{% block content%}
+    <div class="text-right my-2">
+        <a href="{% url 'books:books_index' %}" class="btn btn-primary">Volver</a>
+    </div>
+    <div class="card mx-auto" style="max-width:650px">
+        <div class="card-body">
+            <h3 class="card-title">
+                Name of book: {{ book.title }}
+            </h3>
+            <p class="small">
+                <a href="{% url 'books:books_detail'  book.slug %}">/{{ book.slug }}</a>
+            </p>
+            <p>Resume: {{ book.content }}</p>
+            <p>Author: {{ book.email_author }} - {{ book.full_name_author }}</p>
+            <p>{{ book.is_publicado }}</p>
+            <p>Date of published: {{ book.created_at }}</p>
+            <p>Entry views: {{ visitas }}</p>
+            <p class="small font-weight-bold">The current time is: {{ current_time }}</p>
+        </div>
+    </div>
+{% endblock %}
+
